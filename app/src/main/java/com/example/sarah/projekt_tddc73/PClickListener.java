@@ -5,4 +5,5 @@ public interface PClickListener  {
 
     public void canCreate();
 
+    void canNotCreate();
 }

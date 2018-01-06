@@ -29,10 +29,15 @@ public class MainActivity extends AppCompatActivity {
         psm.setOnPandClickListener(new PClickListener() {
             @Override
             public void canCreate() {
-
                 Toast.makeText(MainActivity.this, "Account can be created", Toast.LENGTH_SHORT).show();
                 //Enables Create button.
                 b.setEnabled(true);
+            }
+            @Override
+            public void canNotCreate() {
+               //Toast.makeText(MainActivity.this, "Account can no longer be created", Toast.LENGTH_SHORT).show();
+                //Enables Create button.
+                b.setEnabled(false);
             }
         });
 

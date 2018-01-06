@@ -215,6 +215,7 @@ public class PasswordStrengthMeter extends LinearLayout {
                 if(userName.matches("")){
                     //Warns if the field is not filled.
                     Toast.makeText(c, "There has to be a Username", Toast.LENGTH_SHORT).show();
+                    checkUser = false;
                 }
                 else{
                     //If user field is filled correctly, set true.
@@ -253,6 +254,9 @@ public class PasswordStrengthMeter extends LinearLayout {
                         checkMail = true;
                         System.out.println("Mail TRUE");
                         mail.setBackgroundColor(0x8000ff00); //Opaque green
+                    }
+                    else{
+                        checkMail = false;
                     }
                 }
 
@@ -350,7 +354,7 @@ public class PasswordStrengthMeter extends LinearLayout {
     //Check function that checks that all the input fields are filled correctly.
     private void checkAndCall() {
 
-        System.out.println("user " + checkUser + " mail " + checkMail + " lenght " + checkLength);
+        System.out.println("User: " + checkUser + " Mail: " + checkMail + " Password: " +  checkPassword + " Lenght: " + checkLength);
 
         //Check if all the fields are correctly filled.
         if(checkUser && checkMail && checkPassword && checkLength){
@@ -358,6 +362,9 @@ public class PasswordStrengthMeter extends LinearLayout {
                 //canCreate() is called which enables the "Create account"-button.
                 listener.canCreate();
             }
+        }
+        else{
+            listener.canNotCreate();
         }
     }
 
