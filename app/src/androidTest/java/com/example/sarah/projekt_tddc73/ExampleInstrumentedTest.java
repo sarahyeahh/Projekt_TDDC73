@@ -50,7 +50,7 @@ public class ExampleInstrumentedTest {
         // Check if the EditText is properly set:
         assertEquals("Sarah", mUsername.getText());
         assertEquals("sarah@mail.se", mMail.getText());
-        assertEquals("Hello123", mPassword.getText());
+        assertEquals("Hello1234", mPassword.getText());
         assertTrue(checkuser);
 
     }
