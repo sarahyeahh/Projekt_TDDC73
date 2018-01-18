@@ -107,7 +107,7 @@ public class PasswordStrengthMeter extends LinearLayout {
 
         //Description for the password.
         message = new TextView(c);
-        message.setText("Password needs to be at least 8 characters.");
+        message.setText("Password needs to have more than 8 characters." + "\n" + "Use both uppercase and lowercase letters.");
 
         //RatingBar
         r = new RatingBar(c);
@@ -147,6 +147,7 @@ public class PasswordStrengthMeter extends LinearLayout {
 
         //LowerCase too see if the password changes.
         String low = password.toLowerCase();
+        String high = password.toUpperCase();
 
         //Create regex to compare with the password
         String numRegex   = ".*[0-9].*";
@@ -168,8 +169,10 @@ public class PasswordStrengthMeter extends LinearLayout {
 
         // 3. Big and small letters
         if(password != low){
-           // System.out.println("Adding one point... contains big and small letters");
-            points++;
+            if(password != high){
+                // System.out.println("Adding one point... contains big and small letters");
+                points++;
+            }
         }
 
         // 4. Contains numbers?
@@ -289,6 +292,7 @@ public class PasswordStrengthMeter extends LinearLayout {
                 switch (rating) {
                     case 1: starColor = Color.RED;
                         checkPassword = false;
+                        Toast.makeText(c,"Create a safer password!", Toast.LENGTH_SHORT).show();
                         break;
                     case 2: starColor = Color.RED;
                         checkPassword = true;
